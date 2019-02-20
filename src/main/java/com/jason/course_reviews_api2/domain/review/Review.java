@@ -2,6 +2,7 @@ package com.jason.course_reviews_api2.domain.review;
 
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.jason.course_reviews_api2.core.BaseEntity;
 import com.jason.course_reviews_api2.domain.course.Course;
 
@@ -14,6 +15,7 @@ public class Review extends BaseEntity {
     private int rating;
     private String description;
     @ManyToOne
+    @JsonBackReference
     private Course course;
 
     public Review(int rating, String description) {

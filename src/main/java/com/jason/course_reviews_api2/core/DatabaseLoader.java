@@ -1,10 +1,16 @@
 package com.jason.course_reviews_api2.core;
 
+import com.jason.course_reviews_api2.domain.course.Course;
 import com.jason.course_reviews_api2.domain.course.CourseRepository;
+import com.jason.course_reviews_api2.domain.review.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
 
 @Component
 public class DatabaseLoader implements ApplicationRunner {
@@ -19,8 +25,8 @@ public class DatabaseLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        Course course = new Course("Java Basics","http://teamtreehouse.com");
-//        course.addReview(new Review(3,"You are dick"));
+        Course course = new Course("Java Basics","http://teamtreehouse.com");
+        course.addReview(new Review(3,"You are dick"));
 
 //
 //
@@ -52,6 +58,7 @@ public class DatabaseLoader implements ApplicationRunner {
 //                    c.addReview(new Review(i%5, String.format("%s Moar Please",buzzword)));
 //                    bunchOfCourses.add(c);
 //                });
+//
 //
 //        courseRepository.saveAll(bunchOfCourses);
 
