@@ -1,9 +1,9 @@
-package com.jason.course_reviews_api2.review;
+package com.jason.course_reviews_api2.domain.review;
 
 
 
 import com.jason.course_reviews_api2.core.BaseEntity;
-import com.jason.course_reviews_api2.course.Course;
+import com.jason.course_reviews_api2.domain.course.Course;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;

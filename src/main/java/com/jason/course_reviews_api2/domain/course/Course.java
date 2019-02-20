@@ -1,8 +1,8 @@
-package com.jason.course_reviews_api2.course;
+package com.jason.course_reviews_api2.domain.course;
 
 
 import com.jason.course_reviews_api2.core.BaseEntity;
-import com.jason.course_reviews_api2.review.Review;
+import com.jason.course_reviews_api2.domain.review.Review;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -16,20 +16,20 @@ public class Course extends BaseEntity {
     private String title;
     private String url;
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    private List<Review> reviews;
+    private List<Review> reviews_what;
 
     protected Course(){
         super();
-        reviews = new ArrayList<>();
+        reviews_what = new ArrayList<>();
     }
 
-    public List<Review> getReviews() {
-        return reviews;
+    public List<Review> getReviews_what() {
+        return reviews_what;
     }
 
     public void addReview(Review review){
         review.setCourse(this);
-        reviews.add(review);
+        reviews_what.add(review);
     }
 
     public Course(String title, String url) {

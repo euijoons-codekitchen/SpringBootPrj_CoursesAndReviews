@@ -11,6 +11,10 @@ public abstract class BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private final Long id;
 
+    public Long getId() {
+        return id;
+    }
+
     protected BaseEntity() {
         id = null;
     }

@@ -1,4 +1,4 @@
-package com.jason.course_reviews_api2.course;
+package com.jason.course_reviews_api2.domain.course;
 
 import org.springframework.data.domain.Page;
 
