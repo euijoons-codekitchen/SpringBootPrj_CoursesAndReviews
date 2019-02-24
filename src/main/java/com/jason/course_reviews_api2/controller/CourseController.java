@@ -2,6 +2,7 @@ package com.jason.course_reviews_api2.controller;
 
 import com.jason.course_reviews_api2.domain.course.Course;
 import com.jason.course_reviews_api2.domain.user.User;
+import com.jason.course_reviews_api2.domain.user.UserRepository;
 import com.jason.course_reviews_api2.dto.UserCourseDto;
 import com.jason.course_reviews_api2.service.course.CourseService;
 import com.jason.course_reviews_api2.service.user.UserService;
@@ -22,30 +23,34 @@ public class CourseController {
 
     private CourseService courseService;
     private UserService userService;
+    private UserRepository repository;
     @Autowired
-    public CourseController(CourseService service, UserService userService){
+    public CourseController(CourseService service, UserService userService, UserRepository repository){
         this.courseService = service;
         this.userService = userService;
+        this.repository = repository;
     }
 
     @PostMapping("/addCourse")
 
     @Transactional
-    public @ResponseBody List<Course> addCourse(@RequestBody UserCourseDto dto){
+    public @ResponseBody void addCourse(@RequestBody UserCourseDto dto){
 
 
         System.out.println("addCourse");
         Course course = courseService.findCourseById(dto.getCourse_id());
         course.courseToString();
         User user = userService.findUserById(dto.getUser_id());
+
         System.out.println("응??");
         user.userToString();
 
         user.addCourse(course);
         userService.updateUser(user);
 
+        System.out.println(user.getCourses().size());
 
-        return user.getCourses();
+//        return userService.updateUser(user).getCourses();
     }
 
     @PostMapping("/myCourses")

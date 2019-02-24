@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jason.course_reviews_api2.core.BaseEntity;
 import com.jason.course_reviews_api2.domain.review.Review;
 import com.jason.course_reviews_api2.domain.user.User;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
-
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 public class Course extends BaseEntity {
 

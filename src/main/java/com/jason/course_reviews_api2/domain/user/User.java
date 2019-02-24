@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.jason.course_reviews_api2.core.BaseEntity;
 import com.jason.course_reviews_api2.domain.course.Course;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,6 +13,9 @@ import java.util.List;
 
 @Table(name = "users")
 @Entity
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+
+
 public class User extends BaseEntity {
 
     @Column(name = "email")
